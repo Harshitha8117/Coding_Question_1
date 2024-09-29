@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class TraineeFitness {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = 3; 
+        int rounds = 3;
+        int[][] oxygenLevels = new int[rounds][n];
+        for (int i = 0; i < rounds; i++) {
+            for (int j = 0; j < n; j++) {
+                int oxygenLevel = scanner.nextInt();
+                if (oxygenLevel < 1 || oxygenLevel > 100) {
+                    System.out.println("INVALID INPUT");
+                    return;
+                }
+                oxygenLevels[i][j] = oxygenLevel;
+            }
+        }
+        // Calculate average oxygen levels
+        double[] averageOxygenLevels = new double[n];
+        for (int j = 0; j < n; j++) {
+            int sum = 0;
+            for (int i = 0; i < rounds; i++) {
+                sum += oxygenLevels[i][j];
+            }
+            averageOxygenLevels[j] = sum / (double) rounds;
+        }
+        double maxAverage = Double.MIN_VALUE;
+        for (double avg : averageOxygenLevels) {
+            if (avg > maxAverage) {
+                maxAverage = avg;
+            }
+        }
+
+        // Print the results
+        if (maxAverage < 70) {
+            System.out.println("All trainees are unfit");
+        } else {
+            for (int j = 0; j < n; j++) {
+                if (Math.round(averageOxygenLevels[j]) == Math.round(maxAverage)) {
+                    System.out.println("Trainee Number: " + (j + 1));
+                }
+            }
+        }
+    }
+}
