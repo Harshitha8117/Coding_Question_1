@@ -1,3 +1,6 @@
+Question 2
+Frogs are sitting on the x-axis of the plane. The x-axis is represented by a given string. * represents a frog and | represents a stone.
+The string consists of only the above-mentioned characters. You are given a start index array and end index array, and calculate the number of frogs between the two stones including the endpoint.
 public class FrogCounter {
     public static int[] countFrogs(String s, int[] startIndices, int[] endIndices) {
         int n = s.length();
@@ -36,5 +39,4 @@ int[] results = new int[startIndices.length];
         }
     }
 }
-Explanation:
-Prep
+
