@@ -1,0 +1,31 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class BalloonCounter {
+    public static String findOddBalloon(int n, char[] balloons) {
+        Map<Character, Integer> balloonCount = new HashMap<>();
+
+        // Count the occurrences of each balloon color
+        for (char balloon : balloons) {
+            balloonCount.put(balloon, balloonCount.getOrDefault(balloon, 0) + 1);
+        }
+
+        // Find the first balloon color with an odd count
+        for (char balloon : balloons) {
+            if (balloonCount.get(balloon) % 2 != 0) {
+                return String.valueOf(balloon);
+            }
+        }
+return "All are even";
+    }
+
+    public static void main(String[] args) {
+        int n = 7;
+        char[] balloons = {'r', 'g', 'b', 'b', 'g', 'y', 'y'};
+        System.out.println(findOddBalloon(n, balloons));  // Output: r
+
+        int n2 = 10;
+        char[] balloons2 = {'a', 'b', 'b', 'b', 'c', 'c', 'c', 'a', 'f', 'c'};
+        System.out.println(findOddBalloon(n2, balloons2));  // Output: b
+    }
+}
