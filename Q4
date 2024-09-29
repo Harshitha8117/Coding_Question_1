@@ -1,3 +1,5 @@
+Question 4 
+At a fun fair, a street vendor is selling different colours of balloons. He sells N number of different colours of balloons (B[]). The task is to find the colour (odd) of the balloon which is present odd number of times in the bunch of balloons.
 import java.util.HashMap;
 import java.util.Map;
 
